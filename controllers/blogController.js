@@ -9,6 +9,24 @@ function index(req, res) {
 
 function show(req, res) {
     // res.send('Dettagli dei blog' + req.params.id);
+
+    // Recupero dell'id dall'URL e l'ho trasformo in numero
+    const id = parseInt(req.params.id)
+
+    // Cerco il post via id
+    const post = posts.find(post => post.id ===id);
+
+    // Controllo
+    if(!post) {
+        res.status(404);
+        return res.json({
+            errror: "Not found",
+            message: "Post non trovato"
+        })
+    }
+
+    // Restituisco il post richiesto
+    res.json(post);
     
 
 }
