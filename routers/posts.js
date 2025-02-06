@@ -1,34 +1,25 @@
 const express = require('express')
 const router = express.Router();
 
+// Importiamo le funzioni del controller
+const blogController = require('../controllers/blogController');
+
 // Index
-router.get('/', function(req, res) {
-    res.send('Lista dei blog');
-});
+router.get('/', blogController.index);
 
 // Show
-router.get('/:id', function(req, res) {
-    res.send('Dettagli dei blog' + req.params.id);
-});
+router.get('/:id', blogController.show);
 
 // Create/Store
-router.post('/', function(req, res) {
-    res.send('Creazione nuovo blog');
-});
+router.post('/', blogController.store);
 
 // Update
-router.put('/:id', function(req, res) {
-    res.send('Modifica integrale del blog' + req.params.id);
-});
+router.put('/:id', blogController.update);
 
 // Modify
-router.patch('/:id', function(req, res) {
-    res.send('Modifica parziale del blog' + req.params.id);
-});
+router.patch('/:id', blogController.update);
 
 // Destroy
-router.delete('/:id', function(req, res) {
-    res.send('Eliminazione del blog' + req.params.id);
-});
+router.delete('/:id', blogController.destroy);
 
 module.exports = router;
