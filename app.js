@@ -6,6 +6,8 @@ const postsRouter = require('./routers/posts');
 // Definizione d'uso di una cartella per i file statici
 app.use(express.static('public'));
 
+app.use(express.json());
+
 // Definizone di rotta home
 app.get('/', (req, res) => {
     res.send('Server del mio blog');
