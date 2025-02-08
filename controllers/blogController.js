@@ -32,7 +32,22 @@ function show(req, res) {
 }
 
 function store(req, res) {
-    res.send('Creazione nuovo blog');
+    // console.log(req.body);
+    // res.send('Creazione nuovo blog');
+
+    // Creo nuovo id incrementando di uno l'ultimo id
+
+    const newId = posts[posts.length - 1].id + 1;
+
+    // Creo nuovo oggetto post
+
+    const newPost = {
+        id: newId,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags
+    }
 
 }
 
