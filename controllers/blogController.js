@@ -61,7 +61,31 @@ function store(req, res) {
 }
 
 function update(req, res) {
-    res.send('Modifica integrale del blog' + req.params.id);
+    // res.send('Modifica integrale del blog' + req.params.id);
+
+            // Recupero dell'id dall'URL e l'ho trasformo in numero
+            const id = parseInt(req.params.id);
+            // Cerco il post via id
+            const post = posts.find(post => post.id ===id);
+            // Controllo
+        if(!post) {
+            res.status(404);
+            return res.json({
+                errror: "Not found",
+                message: "Post non trovato"
+            })
+        }
+        // Appporto le modifiche al post trovato
+        post.title = req.body.title;
+        post.content = req.body.content,
+        post.image = req.body.image,
+        post.tags = req.body.tags
+
+        // Ritorno il post modificato e stampo il blog
+
+        res.json(post);
+        console.log(posts);
+
 
 }
 
