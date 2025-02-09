@@ -48,6 +48,15 @@ function store(req, res) {
         image: req.body.image,
         tags: req.body.tags
     }
+    // Aggiungo il nuovo post
+    posts.push(newPost);
+    // Controllo
+    console.log(posts);
+    // Restituisco lo status corretto e il post creato
+
+    res.status(201);
+    res.json(newPost);
+    
 
 }
 
