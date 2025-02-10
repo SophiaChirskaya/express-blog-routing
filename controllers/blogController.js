@@ -3,6 +3,9 @@ const posts = require('../data/posts');
 function index(req, res) {
     // res.send('Lista dei posts');
     // res.json(posts);
+    // Errore Fake
+    kqkqkqkq;
+    
     let filteredPosts = posts;
     if(req.query.tag) {
         filteredPosts = posts.filter(
